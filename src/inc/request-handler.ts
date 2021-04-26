@@ -123,6 +123,8 @@ export class RequestHandler {
   }
 
   private _requestHasAuthorizationHeader(config): boolean {
-    return !!config.headers.common[this.scheme.options.token.name]
+      return config.headers.common
+      ? !!config.headers.common[this.scheme.options.token.name]
+      : !!config.headers[this.scheme.options.token.name];
   }
 }
